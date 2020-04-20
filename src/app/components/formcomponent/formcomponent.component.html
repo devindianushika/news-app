@@ -1,0 +1,46 @@
+
+<h2>Template Form</h2>
+
+<form (ngSubmit)="onSubmit(formone)" #formone="ngForm">
+    
+    
+    <div class="form-group">
+        <label for="exampleInputUserName">User Name</label>
+        <input type="UserName" class="form-control" id="exampleInputUserName" placeholder="UserName" name="UserName" [(ngModel)]="user.username" #username="ngModel"
+        (change)="logChange(username)"
+         required
+         minlength="3"
+         pattern="devindi">
+
+    <div class="alert alert-danger " *ngIf="!username.valid">
+      <span *ngIf="username.errors.required">username is required</span><br>
+      <span *ngIf="username.errors.minlength">username should have 3 characters</span><br>
+      <span *ngIf="username.errors.pattern">username pattern is does not match</span>
+    </div>
+
+
+
+
+    </div>
+    
+    <div class="form-group">
+      <label for="exampleInputEmail1">Email address</label>
+      <input type="email" class="form-control" id="exampleInputEmail1" placeholder="email" name="email" [(ngModel)]="user.email">
+      <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+    </div>
+   
+   
+   
+   
+    <div class="form-group">
+      <label for="exampleInputPassword1">Password</label>
+      <input type="password" class="form-control" id="exampleInputPassword1" name="password" [(ngModel)]="user.password">
+    </div>
+   
+
+
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+
+  <!-- {{x.className}} -->
